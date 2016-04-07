@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>ScrambleCrypt</title>
+		<style>
+		html, body {
+			font-size: 1.1em;
+			font-family: sans-serif;
+		}
+		</style>
+		<script type="text/javascript" src="jquery.min.js"></script>
+	</head>
+	<body>
+		<form method="POST">
+			<p>Let's play a little game! If you can decrypt 100 or more of my messages I'll let you have a little secret ;)</p>
+			<p><b>NOTE:</b> All words are in English.</p>
+			<% if (judgment == "right") { %><p><b style="color:green">RIGHT</b></p><% } %>
+			<% if (judgment == "wrong") { %><p><b style="color:red">WRONG</b></p><% } %>
+			<% if (showflag === true) { %><p>Flag: <code>sctf{that's_pretty_r3ndom_}</code></p><% } %>
+			<fieldset>
+				<legend id="message">New Game</legend>
+				<p><%= challenge %></p>
+				<input type="text" name="answer" autocomplete="off" autofocus />
+				<input type="hidden" name="token" value="<%= token %>" />
+				<input type="submit" />
+			</fieldset>
+		</form>
+		<script type="text/javascript">
+			var k, l;
+			if ((k = $.cookie("data")) && ((l = parseInt(k.split("level=")[1])) > 0)) {
+				$("#message").html("Level: " + l);
+			}
+		</script>
+	</body>
+</html>

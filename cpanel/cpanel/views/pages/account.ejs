@@ -1,0 +1,28 @@
+<% include ../includes/header %>
+
+<% if (page.logged_in) { %>
+	<div class="container">
+		<div class="row">
+			<div class="page-header">
+				<h1>account</h1>
+			</div>
+		</div>
+		<div class="row">
+			<% if (page.user_info.admin == true || page.user_info.admin == "true") { %>
+				<p>Here's the flag: <code>sctf{TIL_noSql_cAn_bE_InjeKT3d_t0o}</code></p>
+			<% } else { %>
+				<p>No flag for you. You're not an <code>admin</code>.</p>
+<!--
+Error: user.admin is not equal to true.
+<%- JSON.stringify(page.user_info, null, "\t") %>
+-->
+			<% } %>
+		</div>
+	</div>
+<% } else { %>
+	<script type="text/javascript">
+		location.href = "/";
+	</script>
+<% } %>
+
+<% include ../includes/footer %>
