@@ -1,1 +1,0 @@
-sctf{maybe_i_shouldn't_have_extracted_everything_huh}
