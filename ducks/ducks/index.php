@@ -1,6 +1,5 @@
 <?php
-$thepassword_123 = file_get_contents("files/thepassword.txt");
-$theflag = file_get_contents("files/theflag.txt");
+include("secret.php");
 ?>
 <html>
 	<head>
@@ -22,9 +21,9 @@ $theflag = file_get_contents("files/theflag.txt");
 							</div>
 						<?php } ?>
 					<?php } ?>
-					<form action="/" method="POST">
+					<form action="." method="POST">
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col-md-6 col-md-offset-3">
 								<div class="row">
 									<div class="col-md-9">
 										<input type="password" class="form-control" name="pass" placeholder="Password" />
@@ -38,6 +37,11 @@ $theflag = file_get_contents("files/theflag.txt");
 					</form>
 				</center>
 			</div>
+			<p>
+				<center>
+					source at <a href="source.php" target="_blank">/source.php</a>
+				</center>
+			</p>
 		</div>
 	</body>
 </html>
